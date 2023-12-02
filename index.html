@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             margin: 0;
             padding: 0;
         }
+
         #container {
             width: 90%;
             max-width: 400px;
@@ -21,17 +23,20 @@
             border-radius: 5px;
             background-color: #f9f9f9;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
             text-align: left;
         }
+
         input {
             width: calc(100% - 12px);
             padding: 8px;
             margin-bottom: 15px;
             box-sizing: border-box;
         }
+
         button {
             width: 100%;
             padding: 10px;
@@ -41,12 +46,58 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #45a049;
         }
+
         #interactionResult {
             margin-top: 15px;
             text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .drug1 {
+            background-color: #c7e5f8;
+        }
+
+        .drug2 {
+            background-color: #f8cdc7;
+        }
+
+        .drug3 {
+            background-color: #f6c7f8;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+
+            table,
+            th,
+            td {
+                display: block;
+            }
+
+            th,
+            td {
+                width: 100%;
+            }
         }
 
         @media screen and (min-width: 401px) {
@@ -54,6 +105,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="container">
         <h1>Drug Interaction Checker</h1>
@@ -63,6 +115,28 @@
         <input type="text" id="drug2">
         <button onclick="checkInteraction()">Check Interaction</button>
         <p id="interactionResult"></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Drug 1</th>
+                    <th>Drug 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="drug1">
+                    <td>sedative</td>
+                    <td>antihistamine</td>
+                </tr>
+                <tr class="drug2">
+                    <td>aspirin</td>
+                    <td>warfarin</td>
+                </tr>
+                <tr class="drug3">
+                    <td>ibuprofen</td>
+                    <td>lisinopril</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <script>
@@ -73,8 +147,8 @@
         };
 
         function checkInteraction() {
-            const drug1 = document.getElementById("drug1").value.toLowerCase();
-            const drug2 = document.getElementById("drug2").value.toLowerCase();
+            const drug1 = document.getElementById("drug1").value;
+            const drug2 = document.getElementById("drug2").value;
             const interactionKey = drug1 + "|" + drug2;
             const interactionResult = document.getElementById("interactionResult");
 
@@ -84,6 +158,8 @@
                 interactionResult.innerHTML = "No known interaction.";
             }
         }
+        console.log(knownInteractions)
     </script>
 </body>
+
 </html>
