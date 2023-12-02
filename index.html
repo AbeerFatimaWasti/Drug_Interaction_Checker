@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Interaction Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Drug Interaction Checker</h1>
+        <label for="drug1">Enter the name of the first drug:</label>
+        <input type="text" id="drug1"><br><br>
+        <label for="drug2">Enter the name of the second drug:</label>
+        <input type="text" id="drug2"><br><br>
+        <button onclick="checkInteraction()">Check Interaction</button>
+        <p id="interactionResult"></p>
+    </div>
+
+    <script>
+        const knownInteractions = {
+            "sedative|antihistamine": "May cause drowsiness and impair coordination.",
+            "aspirin|warfarin": "Increased risk of bleeding.",
+            "ibuprofen|lisinopril": "May reduce the effectiveness of lisinopril.",
+        };
+
+        function checkInteraction() {
+            const drug1 = document.getElementById("drug1").value.toLowerCase();
+            const drug2 = document.getElementById("drug2").value.toLowerCase();
+            const interactionKey = drug1 + "|" + drug2;
+            const interactionResult = document.getElementById("interactionResult");
+
+            if (knownInteractions.hasOwnProperty(interactionKey)) {
+                interactionResult.innerHTML = knownInteractions[interactionKey];
+            } else {
+                interactionResult.innerHTML = "No known interaction.";
+            }
+        }
+    </script>
+</body>
+</html>
