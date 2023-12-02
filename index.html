@@ -1,19 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drug Interaction Checker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
         }
         #container {
-            width: 300px;
-            margin: 0 auto;
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        input {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #interactionResult {
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        @media screen and (min-width: 401px) {
+            /* Add styles for larger screens if needed */
         }
     </style>
 </head>
@@ -21,9 +58,9 @@
     <div id="container">
         <h1>Drug Interaction Checker</h1>
         <label for="drug1">Enter the name of the first drug:</label>
-        <input type="text" id="drug1"><br><br>
+        <input type="text" id="drug1">
         <label for="drug2">Enter the name of the second drug:</label>
-        <input type="text" id="drug2"><br><br>
+        <input type="text" id="drug2">
         <button onclick="checkInteraction()">Check Interaction</button>
         <p id="interactionResult"></p>
     </div>
