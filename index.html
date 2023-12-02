@@ -60,6 +60,8 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            overflow-x: auto;
+            /* Enable horizontal scrolling on small screens */
         }
 
         th,
@@ -67,6 +69,8 @@
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
+            white-space: nowrap;
+            /* Prevent line break within cells */
         }
 
         th {
@@ -88,15 +92,10 @@
 
         @media only screen and (max-width: 600px) {
 
-            table,
             th,
             td {
-                display: block;
-            }
-
-            th,
-            td {
-                width: 100%;
+                white-space: normal;
+                /* Allow line break within cells */
             }
         }
 
@@ -162,4 +161,4 @@
     </script>
 </body>
 
-</html>
+</html
